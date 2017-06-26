@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+    <!--this plugin is used to save the extended attributes on the Magento\Quote\Api\Data\AddressInterface-->
+    <type name="Magento\Quote\Model\Quote\Address">
+        <plugin name="add_extended_attributes_to_quote_address" type="Vivint\ApiExtension\Plugin\AddressAttributesSave"/>
+    </type>
+   
+    <!--this plugin / di is used to tap into Magento\Checkout\Model\ShippingInformationManagement::saveAddressInformation to register the quote 
+    info for use in modififying api response-->
+    <preference for="Vivint\ApiExtension\Api\Data\PaymentDetailsExtensionDataInterface" type="Vivint\ApiExtension\Model\PaymentDetailsExtensionData" />
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="on_payment_details_add_quote_data" type="Vivint\ApiExtension\Plugin\ShippingInformationManagement\SaveAddressInformation"/>
+    </type>
+
+    <!--this plugin is used to register the extended attributes on the Magento\Checkout\Api\Data\PaymentDetailsInterface using quote object registered using above plugin -->
+    <type name="Magento\Checkout\Model\PaymentDetails">
+        <plugin name="return_adress_verification_data" type="Vivint\ApiExtension\Plugin\ExtensionData\PaymentDetailsExtraData"/>
+    </type>
+    
+</config>

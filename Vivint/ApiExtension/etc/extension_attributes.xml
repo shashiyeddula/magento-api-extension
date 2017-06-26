@@ -1,0 +1,31 @@
+<config>
+    <!--adding these extended attributes means new AdsressExtension and AddressEntensionInterface are auto generated 
+    ie var/generation/Magento/Quote/Api/Data/AddressExtensionInterface.php
+    // put it in developer mode and clear out the generated files if this does not work the first time-->
+    <extension_attributes for="Magento\Quote\Api\Data\AddressInterface">
+        <attribute code="is_verified" type="boolean"/>
+        <attribute code="verification_date" type="string"/>
+        <attribute code="latitude" type="integer"/>
+        <attribute code="longitude" type="integer"/>
+        <attribute code="accept_address" type="boolean"/>
+        <attribute code="has_package_limitations" type="boolean"/>
+    </extension_attributes>
+    
+    <!--define extension attribute for the api response this will generate the definition interface
+    in var/generation/Magento/Checkout/Api/Data/PaymentDetailsExtensionInterface.php-->
+    <extension_attributes for="Magento\Checkout\Api\Data\PaymentDetailsInterface">
+        <attribute code="accept_address" type="boolean"/>
+        <attribute code="has_package_limitations" type="boolean"/>
+        <!--this a complex attribute type with a collection of properties so i created a seprate attribute type -->
+        <attribute code="address" type="Vivint\ApiExtension\Api\Data\PaymentDetailsExtensionDataInterface"/>
+    </extension_attributes>
+    
+    <!--define extension attribute for the api input where we pass in the shipping info shipping_address,billing_address,shipping_method
+    this will generate the interface 
+    ie var/generation/Magento/Checkout/Api/Data/ShippingInformationExtensionInterface.php-->
+    <extension_attributes for="Magento\Checkout\Api\Data\ShippingInformationInterface">
+        <attribute code="contact_id" type="string"/>
+        <attribute code="another_id" type="string"/>
+        <attribute code="some_random_date" type="string"/>
+    </extension_attributes>
+</config>
