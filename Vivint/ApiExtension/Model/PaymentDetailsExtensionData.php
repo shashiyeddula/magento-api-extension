@@ -46,8 +46,13 @@ PaymentDetailsExtensionDataInterface
         return $this->_getExtensionAttributes();
     }
 
+    /**
+     * this lets us add even more extension attributes to this
+     * @param \Vivint\ApiExtension\Api\Data\PaymentDetailsExtensionDataExtensionInterface $extensionAttributes
+     * @return type
+     */
     public function setExtensionAttributes(
-    Vivint\ApiExtension\Api\Data\PaymentDetailsExtensionInterface $extensionAttributes
+    \Vivint\ApiExtension\Api\Data\PaymentDetailsExtensionDataExtensionInterface $extensionAttributes
     )
     {
         return $this->_setExtensionAttributes($extensionAttributes);
