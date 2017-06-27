@@ -28,4 +28,12 @@
         <attribute code="another_id" type="string"/>
         <attribute code="some_random_date" type="string"/>
     </extension_attributes>
+    
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="contact_id" type="string"/>
+        <attribute code="another_id" type="string"/>
+        <attribute code="some_random_date" type="string"/>
+    </extension_attributes>
+    
+    
 </config>

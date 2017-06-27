@@ -18,4 +18,10 @@
         <plugin name="return_adress_verification_data" type="Vivint\ApiExtension\Plugin\ExtensionData\PaymentDetailsExtraData"/>
     </type>
     
+    <!--this is the plugin that will set the extended atributes contact_id etc on the cartInterface that gets retuned when cart  fetch api is used-->
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="load_extension_data_into_cart_response" type="Vivint\ApiExtension\Plugin\ExtensionData\CartRepositoryGetExtraData"/>
+    </type>
+    
+    
 </config>
