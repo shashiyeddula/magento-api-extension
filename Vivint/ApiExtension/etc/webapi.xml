@@ -1,9 +1,15 @@
 <?xml version="1.0"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/vivint/guest-carts/:cartId" method="GET">
-        <service class="Magento\Quote\Api\GuestCartRepositoryInterface" method="get"/>
+    <route url="/V1/salesRules/search/guest" method="GET">
+        <service class="Magento\SalesRule\Api\RuleRepositoryInterface" method="getList"/>
         <resources>
-            <resource ref="anonymous" />
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/coupons/search/guest" method="GET">
+        <service class="Magento\SalesRule\Api\CouponRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
         </resources>
     </route>
 </routes>
