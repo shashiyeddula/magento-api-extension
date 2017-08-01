@@ -23,5 +23,9 @@
         <plugin name="load_extension_data_into_cart_response" type="Vivint\ApiExtension\Plugin\ExtensionData\CartRepositoryGetExtraData"/>
     </type>
     
+    <type name="Magento\Quote\Model\GuestCart\GuestCartManagement">
+        <plugin name="do_some_stuff" type="Vivint\ApiExtension\Plugin\BeforePlaceOrder"/>
+    </type>
+    
     
 </config>

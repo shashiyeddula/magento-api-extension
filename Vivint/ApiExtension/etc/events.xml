@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--this event observer listens when additional data is sent via the api to be validated and inserted into the table-->
+    <!--payment_method_assign_data_{checkmo} this is set of {checkmo} payment method you can change the payment method key to make it work for other payment methods-->
+    <event name="payment_method_assign_data_checkmo">
+        <observer name="assing_checkmo_additional_data" instance="Vivint\ApiExtension\Observer\PaymentDataAssignObserver" />
+    </event>
+    
+    <!--this event gets triggered after order is sucessfully placed-->
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="do_my_custom_stuff" instance="Vivint\ApiExtension\Observer\AfterPlaceOrderSuccess" />
+    </event>
+</config>
